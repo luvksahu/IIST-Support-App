@@ -77,7 +77,7 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnLogin"
         android:layout_width="150dp"
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
@@ -87,10 +87,10 @@
         app:layout_constraintEnd_toEndOf="@+id/passContainer"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/passContainer"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvForgetPass" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvForgetPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -108,7 +108,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/passContainer"
         app:layout_constraintStart_toStartOf="@+id/passContainer"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin">
 
         <TextView
             android:id="@+id/textView3"
@@ -119,7 +119,7 @@
             android:textColor="?attr/colorOnSecondary" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
