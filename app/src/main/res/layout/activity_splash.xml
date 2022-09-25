@@ -17,7 +17,7 @@
         app:lottie_autoPlay="true"
 
         app:lottie_loop="true"
-        app:lottie_rawRes="" />
+        app:lottie_rawRes="@raw/splash" />
 
     <TextView
         android:id="@+id/textView"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="IIST Support"
-        android:textColor="?attr/colorOnPrimary"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/animationView"
