@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "179908322301",
+    "project_id": "iist-support",
+    "storage_bucket": "iist-support.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179908322301:android:7f7134e9c7e6b7ac122f94",
+        "android_client_info": {
+          "package_name": "com.brocoders.iistsupport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179908322301-54oddi3pl0gaa341p35bsddrtn2881h6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF5mRxz-vRcVQzLuqonAGZQ30zIFJkc4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179908322301-54oddi3pl0gaa341p35bsddrtn2881h6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
