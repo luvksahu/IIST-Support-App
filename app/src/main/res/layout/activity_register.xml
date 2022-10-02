@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="80dp"
         android:fontFamily="serif"
         android:gravity="center"
-        android:text="Log in"
+        android:text="Register"
         android:textColor="?attr/colorOnSecondary"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailContainer"
+        android:id="@+id/nameContainer"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
@@ -32,12 +32,36 @@
         android:layout_marginTop="80dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:hint="Enter Full Name"
+        android:textColor="?attr/colorOnSecondary"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:textColor="?attr/colorOnSecondary"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailContainer"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:hint="Enter Institute mail"
         android:textColor="?attr/colorOnSecondary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" >
+        app:layout_constraintEnd_toEndOf="@id/nameContainer"
+        app:layout_constraintStart_toStartOf="@id/nameContainer"
+        app:layout_constraintTop_toBottomOf="@+id/nameContainer" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
@@ -61,9 +85,8 @@
         android:layout_marginEnd="32dp"
         android:hint="Enter Password"
         android:textColor="?attr/colorOnSecondary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/emailContainer"
+        app:layout_constraintStart_toStartOf="@id/emailContainer"
         app:layout_constraintTop_toBottomOf="@+id/emailContainer">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -77,53 +100,41 @@
 
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="150dp"
-        android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:background="@color/black"
         android:gravity="center"
-        android:text="LOG IN"
+        android:text="Register"
         app:layout_constraintEnd_toEndOf="@+id/passContainer"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/passContainer"
-        app:layout_constraintTop_toBottomOf="@+id/tvForgetPass" />
-
-    <TextView
-        android:id="@+id/tvForgetPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="5dp"
-        android:text="Forgot Password?"
-        android:textColor="?attr/colorOnSecondary"
-        app:layout_constraintEnd_toEndOf="@+id/passContainer"
         app:layout_constraintTop_toBottomOf="@+id/passContainer" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/passContainer"
         app:layout_constraintStart_toStartOf="@+id/passContainer"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin">
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Don`t have an account?"
+            android:text="Have an account?"
             android:textColor="?attr/colorOnSecondary" />
 
         <TextView
-            android:id="@+id/tvRegister"
+            android:id="@+id/tvLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Register"
+            android:text="Log in"
             android:textColor="?attr/colorOnSecondary"
             android:textStyle="bold" />
     </LinearLayout>
