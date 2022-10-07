@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "179908322301",
-    "project_id": "iist-support",
-    "storage_bucket": "iist-support.appspot.com"
+    "project_number": "93896044957",
+    "project_id": "iist-support-app",
+    "storage_bucket": "iist-support-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:179908322301:android:7f7134e9c7e6b7ac122f94",
+        "mobilesdk_app_id": "1:93896044957:android:3a02a49ad36ce842773f74",
         "android_client_info": {
           "package_name": "com.brocoders.iistsupport"
         }
       },
       "oauth_client": [
         {
-          "client_id": "179908322301-54oddi3pl0gaa341p35bsddrtn2881h6.apps.googleusercontent.com",
+          "client_id": "93896044957-t70d3vf48kblnhihk50re3jsfet9cco9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAF5mRxz-vRcVQzLuqonAGZQ30zIFJkc4w"
+          "current_key": "AIzaSyC0-Lrcp1gNnZhu5XeKIxL0CzaP_JzFxYg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "179908322301-54oddi3pl0gaa341p35bsddrtn2881h6.apps.googleusercontent.com",
+              "client_id": "93896044957-t70d3vf48kblnhihk50re3jsfet9cco9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

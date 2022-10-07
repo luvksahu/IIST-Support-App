@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Users user = new Users(name, email, password);
 
                             String id = task.getResult().getUser().getUid();
-                            database.getReference().child(id).setValue(user);
+                            database.getReference("User Data").child(id).setValue(user);
 
                             Toast.makeText(RegisterActivity.this,"User Created Successfully", Toast.LENGTH_SHORT).show();
                         }
