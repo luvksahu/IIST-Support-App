@@ -8,7 +8,6 @@
     tools:context=".MainActivity"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-    android:layout_margin="16dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -25,6 +24,7 @@
             android:layout_marginBottom="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/fimg"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="10dp"
@@ -40,7 +40,7 @@
                 android:layout_marginEnd="10dp"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/Name"
+                    android:id="@+id/fname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ashish Patidar"
@@ -49,7 +49,7 @@
                     android:textColor="?attr/colorOnSecondary"
                     android:textSize="25sp" />
                 <TextView
-                    android:id="@+id/role"
+                    android:id="@+id/frole"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Asistant Professor"
@@ -57,7 +57,7 @@
                     android:textColor="?attr/colorOnSecondary"
                     android:textSize="12sp" />
                 <TextView
-                    android:id="@+id/email"
+                    android:id="@+id/femail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="patidarashish@gmail.com"
@@ -78,7 +78,7 @@
             android:paddingStart="10dp"
             android:paddingEnd="10dp"/>
         <TextView
-            android:id="@+id/tvage"
+            android:id="@+id/fexpertise"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="HTML, CSS, JS, React, C, C++, JAVA, SQL, XML, DSA, MongoDB, Firebase, Data Science"

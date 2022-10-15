@@ -1,6 +1,8 @@
 package com.brocoders.iistsupport
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+
+        val facultyClick = findViewById<LinearLayout>(R.id.btn_faculty)
+        facultyClick.setOnClickListener {
+            val intent = Intent(this, FacultyActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
@@ -25,4 +33,5 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Yes") { dialogInterface, i -> finish() }
             .setNegativeButton("No") { dialogInterface, i -> dialogInterface.dismiss() }.show()
     }
+
 }

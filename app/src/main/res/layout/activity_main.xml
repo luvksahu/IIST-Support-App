@@ -40,7 +40,7 @@
             android:orientation="horizontal"
             android:layout_margin="20dp">
             <LinearLayout
-                android:id="@+id/faculy"
+                android:id="@+id/btn_faculty"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@drawable/layout_shape"
