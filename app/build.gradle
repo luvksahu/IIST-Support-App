@@ -60,6 +60,6 @@ dependencies {
     apply plugin: 'com.android.application'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
-    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
+    implementation 'com.firebaseui:firebase-ui-database:8.0.1'
 }
 
