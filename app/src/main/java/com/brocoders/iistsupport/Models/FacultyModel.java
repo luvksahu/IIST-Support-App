@@ -3,9 +3,6 @@ package com.brocoders.iistsupport.Models;
 public class FacultyModel {
     String email,expertise,name,role,furl;
 
-    FacultyModel(){
-
-    }
 
     public FacultyModel(String email, String expertise, String name, String role, String furl){
         this.email=email;

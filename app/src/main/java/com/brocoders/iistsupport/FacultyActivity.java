@@ -6,20 +6,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import com.brocoders.iistsupport.Models.FacultyModel;
 import com.brocoders.iistsupport.adapter.FacultyAdapter;
+import com.brocoders.iistsupport.databinding.ActivityFacultyBinding;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FacultyActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
     FacultyAdapter facultyAdapter;
-
+    ActivityFacultyBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faculty);
+        binding = ActivityFacultyBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        recyclerView = (RecyclerView) findViewById(R.id.faculty_rv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.facultyRv.setLayoutManager(new LinearLayoutManager(this));
 
         FirebaseRecyclerOptions<FacultyModel> options =
                 new FirebaseRecyclerOptions.Builder<FacultyModel>()
@@ -27,7 +27,7 @@ public class FacultyActivity extends AppCompatActivity {
                         .build();
 
         facultyAdapter = new FacultyAdapter(options);
-        recyclerView.setAdapter(facultyAdapter);
+        binding.facultyRv.setAdapter(facultyAdapter);
     }
 
     @Override
