@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    ActivityLoginBinding binding;
+    private ActivityLoginBinding binding;
     private ProgressDialog progressDialog;
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
 
         // Initializations
         auth= FirebaseAuth.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
         sharedPreferences = getSharedPreferences("iistSupportApp",MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
@@ -48,9 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Logging you in!!");
 
-        if(auth.getCurrentUser()!=null){
-            verifyEmail(); // I created this method for reusability
-        }
 
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,8 +77,8 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
                                 if(task.isSuccessful()){
-
-                                    verifyEmail();
+                                    user = auth.getCurrentUser();
+                                    verifyEmail();   // LKS Defined
                                 }
                                 else{
                                     Toast.makeText(LoginActivity.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
@@ -95,8 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
@@ -104,9 +99,8 @@ public class LoginActivity extends AppCompatActivity {
 
     protected void verifyEmail(){
         if(user.isEmailVerified()){
-            showToast("Logged in succesfully");
-            Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-            startActivity(intent);
+            showToast("Logged in successfully");
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             finish();
         }
         else{
@@ -129,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                     }).setNegativeButton("Verified", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            verifyEmail();
+                            dialog.dismiss();
                         }
                     }).show();
 
