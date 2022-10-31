@@ -1,6 +1,8 @@
 package com.brocoders.iistsupport.route;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import com.brocoders.iistsupport.R;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,9 +12,10 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RouteActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-    RouteAdapter busAdapter;
-    ActivityBusRouteBinding binding;
+    private RecyclerView recyclerView;
+    private RouteAdapter busAdapter;
+    private ActivityBusRouteBinding binding;
+    private String busNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +26,19 @@ public class RouteActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.routeRV);
         binding.routeRV.setLayoutManager(new LinearLayoutManager(this));
 
+        Intent intent = getIntent();
+        busNo = intent.getStringExtra("busNo");
+
+        setTitle("Bus no: "+busNo);
         FirebaseRecyclerOptions<RouteModel> options =
                 new FirebaseRecyclerOptions.Builder<RouteModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Bus Route").child("R1"), RouteModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Bus Route").child(busNo), RouteModel.class)
                         .build();
 
         busAdapter = new RouteAdapter(options);
         binding.routeRV.setAdapter(busAdapter);
+
+
     }
     @Override
 
