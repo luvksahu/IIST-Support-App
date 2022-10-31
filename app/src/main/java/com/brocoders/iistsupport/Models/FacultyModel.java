@@ -1,8 +1,8 @@
 package com.brocoders.iistsupport.Models;
 
+
 public class FacultyModel {
     String email,expertise,name,role,furl;
-
 
     public FacultyModel(String email, String expertise, String name, String role, String furl){
         this.email=email;
@@ -10,6 +10,8 @@ public class FacultyModel {
         this.name=name;
         this.role=role;
         this.furl=furl;
+    }
+    public FacultyModel(){
     }
 
     public String getEmail() {

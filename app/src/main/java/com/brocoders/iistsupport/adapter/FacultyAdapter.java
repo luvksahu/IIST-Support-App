@@ -23,7 +23,7 @@ public class FacultyAdapter extends FirebaseRecyclerAdapter<FacultyModel,Faculty
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull FacultyModel model) {
         holder.email.setText(model.getEmail());
-        holder.expertise.setText(model.getExpertise());
+        holder.expertise.setText((CharSequence) model.getExpertise());
         holder.name.setText(model.getName());
         holder.role.setText(model.getRole());
 
@@ -42,7 +42,7 @@ public class FacultyAdapter extends FirebaseRecyclerAdapter<FacultyModel,Faculty
         return new myViewHolder(view);  // this is for show main item in recycler view
     }
 
-    class myViewHolder extends RecyclerView.ViewHolder{
+    static class myViewHolder extends RecyclerView.ViewHolder{
 
         CircleImageView furl;
         TextView email,expertise,name,role;
@@ -50,12 +50,12 @@ public class FacultyAdapter extends FirebaseRecyclerAdapter<FacultyModel,Faculty
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            furl = (CircleImageView)itemView.findViewById(R.id.fimg);
-            email = (TextView)itemView.findViewById(R.id.femail);
-            expertise = (TextView)itemView.findViewById(R.id.fexpertise);
-            name = (TextView)itemView.findViewById(R.id.fname);
-            role = (TextView)itemView.findViewById(R.id.frole);
-            name = (TextView)itemView.findViewById(R.id.fname);
+            furl = itemView.findViewById(R.id.fimg);
+            email =itemView.findViewById(R.id.femail);
+            expertise = itemView.findViewById(R.id.fexpertise);
+            name = itemView.findViewById(R.id.fname);
+            role = itemView.findViewById(R.id.frole);
+            name = itemView.findViewById(R.id.fname);
         }
     }
 
