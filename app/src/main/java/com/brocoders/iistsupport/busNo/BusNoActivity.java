@@ -32,6 +32,7 @@ public class BusNoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_no);
+        setTitle("Find a bus");
 
         recyclerView = findViewById(R.id.busRV);
         list = new ArrayList<>();
