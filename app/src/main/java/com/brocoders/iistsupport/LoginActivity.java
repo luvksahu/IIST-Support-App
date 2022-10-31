@@ -97,6 +97,34 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        binding.tvForgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = binding.etEmail.getText().toString().trim();
+                binding.emailContainer.setError(null);
+                if(email.isEmpty()){
+                    binding.emailContainer.setError("Enter Email");
+                    return;
+                }
+                if(!email.matches(emailPattern)){
+                    binding.emailContainer.setError("Enter a valid Email");
+                    return;
+                }
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    showToast("We have sent you a mail to reset your password!");
+                                }
+                                else{
+                                    showToast("Failed to send reset email!");
+                                }
+                            }
+                        });
+            }
+        });
+
     }
 
     protected void verifyEmail(){
