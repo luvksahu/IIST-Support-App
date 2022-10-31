@@ -42,6 +42,7 @@
             android:layout_margin="20dp">
             <LinearLayout
 
+                android:id="@+id/btnChatBot"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@drawable/layout_shape"
@@ -67,6 +68,7 @@
                     android:layout_marginTop="10dp" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/btnWebsite"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_weight="0.5"
@@ -98,7 +100,7 @@
             android:baselineAligned="false"
             android:layout_margin="20dp">
             <LinearLayout
-                android:id="@+id/facul"
+                android:id="@+id/btn360View"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@drawable/layout_shape"
@@ -156,7 +158,7 @@
             android:baselineAligned="false"
             android:layout_margin="20dp">
             <LinearLayout
-                android:id="@+id/faulty"
+                android:id="@+id/btnNotices"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@drawable/layout_shape"
@@ -213,7 +215,7 @@
             android:baselineAligned="false"
             android:layout_margin="20dp">
             <LinearLayout
-                android:id="@+id/faculty"
+                android:id="@+id/btnChangeLang"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@drawable/layout_shape"
@@ -239,6 +241,7 @@
                     android:layout_marginTop="10dp" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/btnUser"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_weight="0.5"

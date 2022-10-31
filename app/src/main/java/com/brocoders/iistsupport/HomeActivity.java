@@ -21,14 +21,14 @@ public class HomeActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        binding.btnFaculty.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, FacultyActivity.class);
-            startActivity(intent);
-        });
-        binding.btnBus.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, BusNoActivity.class);
-            startActivity(intent);
-        });
+        binding.btnFaculty.setOnClickListener(v ->
+                startActivity(new Intent(HomeActivity.this, FacultyActivity.class)));
+
+        binding.btnBus.setOnClickListener(v ->
+                startActivity(new Intent(HomeActivity.this, BusNoActivity.class)));
+
+        binding.btnWebsite.setOnClickListener(v ->
+                startActivity(new Intent(HomeActivity.this, WebViewActivity.class)));
 
     }
 }
