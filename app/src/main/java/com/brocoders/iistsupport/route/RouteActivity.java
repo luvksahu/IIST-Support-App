@@ -25,7 +25,7 @@ public class RouteActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<RouteModel> options =
                 new FirebaseRecyclerOptions.Builder<RouteModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Bus Route").child("R1"), RouteModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Bus Route").child("39"), RouteModel.class)
                         .build();
 
         busAdapter = new RouteAdapter(options);
