@@ -29,6 +29,7 @@ public class RouteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         busNo = intent.getStringExtra("busNo");
 
+        setTitle("Bus no: "+busNo);
         FirebaseRecyclerOptions<RouteModel> options =
                 new FirebaseRecyclerOptions.Builder<RouteModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Bus Route").child(busNo), RouteModel.class)
