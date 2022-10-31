@@ -44,25 +44,32 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = binding.etEmail.getText().toString().trim();
                 String password = binding.etPassword.getText().toString().trim();
 
+                binding.nameContainer.setError(null);
+                binding.emailContainer.setError(null);
+                binding.passContainer.setError(null);
                 if(name.isEmpty()){
-                    binding.etName.setError("Enter Name");
+                    binding.nameContainer.setError("Name cannot be empty");
                     return;
                 }
 
-//                if(!email.matches(emailPattern)){
-//                    binding.etEmail.setError("Enter a valid Email");
-//                    return;
-//                }
+                if(!email.matches(emailPattern)){
+                    binding.emailContainer.setError("Enter a valid Email");
+                    return;
+                }
                 if(email.isEmpty()){
-                    binding.etEmail.setError("Enter Email");
+                    binding.emailContainer.setError("Email cannot be empty");
                     return;
                 }
 
                 if(password.isEmpty()){
-                    binding.etPassword.setError("Enter Password");
+                    binding.passContainer.setError("Password cannot be empty");
                     return;
                 }
 
+                if(password.length()<6){
+                    binding.passContainer.setError("Password must contain minimum 6 characters");
+                    return;
+                }
                 progressDialog.show();
 
                 auth.createUserWithEmailAndPassword(email,password)

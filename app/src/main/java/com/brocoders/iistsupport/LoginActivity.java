@@ -55,17 +55,19 @@ public class LoginActivity extends AppCompatActivity {
                 String email = binding.etEmail.getText().toString().trim();
                 String password = binding.etPassword.getText().toString().trim();
 
+                binding.emailContainer.setError(null);
+                binding.passContainer.setError(null);
                 if(email.isEmpty()){
-                    binding.etEmail.setError("Enter Email");
+                    binding.emailContainer.setError("Enter Email");
                     return;
                 }
 
-//                if(!email.matches(emailPattern)){
-//                    binding.etEmail.setError("Enter a valid Email");
-//                    return;
-//                }
+                if(!email.matches(emailPattern)){
+                    binding.emailContainer.setError("Enter a valid Email");
+                    return;
+                }
                 if(password.isEmpty()){
-                    binding.etPassword.setError("Enter Password");
+                    binding.passContainer.setError("Enter Password");
                     return;
                 }
 
