@@ -17,10 +17,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    ActivityRegisterBinding binding;
+    private ActivityRegisterBinding binding;
     private FirebaseAuth auth;
-    FirebaseDatabase database;
-    ProgressDialog progressDialog;
+    private FirebaseDatabase database;
+    private ProgressDialog progressDialog;
     private static final String emailPattern = "[a-zA-Z0-9._-]+@indoreinstitute+\\.+com+";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
