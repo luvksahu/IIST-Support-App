@@ -23,6 +23,7 @@ public class FacultyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityFacultyBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setTitle("Find a mentor");
 
         recyclerView = findViewById(R.id.faculty_rv);
         binding.facultyRv.setLayoutManager(new LinearLayoutManager(this));
