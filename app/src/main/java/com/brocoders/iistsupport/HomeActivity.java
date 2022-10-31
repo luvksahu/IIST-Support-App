@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.brocoders.iistsupport.busNo.BusNoActivity;
 import com.brocoders.iistsupport.databinding.ActivityHomeBinding;
 import com.brocoders.iistsupport.route.RouteActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -30,5 +32,11 @@ public class HomeActivity extends AppCompatActivity {
         binding.btnWebsite.setOnClickListener(v ->
                 startActivity(new Intent(HomeActivity.this, WebViewActivity.class)));
 
+        binding.btnUser.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Logged out", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+            finish();
+        });
     }
 }
