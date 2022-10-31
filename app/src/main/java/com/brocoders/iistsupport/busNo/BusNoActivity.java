@@ -5,12 +5,16 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.brocoders.iistsupport.Classes.RecyclerItemClickListener;
 import com.brocoders.iistsupport.R;
 import com.brocoders.iistsupport.databinding.ActivityBusNoBinding;
+import com.brocoders.iistsupport.route.RouteActivity;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -65,6 +69,21 @@ public class BusNoActivity extends AppCompatActivity {
         BusAdapter adapter = new BusAdapter(list, this);
         recyclerView.setAdapter(adapter);
 
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(BusNoActivity.this, recyclerView,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent = new Intent(BusNoActivity.this, RouteActivity.class);
+                intent.putExtra("busNo", list.get(position).busNo);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
 
     }
     // for search in faculty activity
