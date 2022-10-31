@@ -10,7 +10,9 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Home Screen -->
+        <item name="colorOnTertiary">@color/light_blue</item>
+        <item name="colorOnTertiaryContainer">@color/grey</item>
     </style>
 </resources>

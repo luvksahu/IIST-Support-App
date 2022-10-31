@@ -17,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().hide();
 
         binding.btnFaculty.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, FacultyActivity.class);
