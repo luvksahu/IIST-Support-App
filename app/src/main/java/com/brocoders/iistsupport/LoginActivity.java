@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private Dialog dialog;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    private static final String emailPattern = "[a-zA-Z0-9._-]+@indoreinstitute+\\.+com+";
+    private static final String emailPattern = "[a-zA-Z]+\\.+[a-zA-Z0-9._-]+[0-9]+@indoreinstitute+\\.+com+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,7 +161,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     protected void showToast(String text){
-        Toast.makeText(LoginActivity.this, text+"", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, text+"", Toast.LENGTH_LONG).show();
     }
 
 }

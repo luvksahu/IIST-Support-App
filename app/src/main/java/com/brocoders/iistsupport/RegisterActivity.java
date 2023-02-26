@@ -21,7 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseDatabase database;
     private ProgressDialog progressDialog;
-    private static final String emailPattern = "[a-zA-Z0-9._-]+@indoreinstitute+\\.+com+";
+    private static final String emailPattern = "[a-zA-Z]+\\.+[a-zA-Z0-9._-]+[0-9]+@indoreinstitute+\\.+com+";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
