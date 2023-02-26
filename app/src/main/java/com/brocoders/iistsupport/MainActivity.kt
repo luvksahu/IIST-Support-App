@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 } catch (ex: Exception) {
                     ex.printStackTrace()
                 } finally {
-                    if((FirebaseAuth.getInstance().currentUser != null) && FirebaseAuth.getInstance().currentUser!!.isEmailVerified()){
+                    if((FirebaseAuth.getInstance().currentUser != null) && FirebaseAuth.getInstance().currentUser!!.isEmailVerified){
                         val intent=Intent(this@MainActivity,HomeActivity::class.java)
                         startActivity(intent)
                     }else{
@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         AlertDialog.Builder(this@MainActivity)
             .setIcon(R.drawable.ic_warning)
