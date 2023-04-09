@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.brocoders.iistsupport.busNo.BusNoActivity;
 import com.brocoders.iistsupport.databinding.ActivityHomeBinding;
+import com.brocoders.iistsupport.notices.notice.NoticeActivity;
 import com.brocoders.iistsupport.route.RouteActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -31,6 +32,10 @@ public class HomeActivity extends AppCompatActivity {
 
         binding.btnWebsite.setOnClickListener(v ->
                 startActivity(new Intent(HomeActivity.this, WebViewActivity.class)));
+
+        binding.btnNotices.setOnClickListener(v ->
+                startActivity(new Intent(HomeActivity.this, NoticeActivity.class)));
+
 
         binding.btnUser.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();

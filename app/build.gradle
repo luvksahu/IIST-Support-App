@@ -61,5 +61,8 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     implementation 'com.firebaseui:firebase-ui-database:8.0.1'
+
+    //for image fetching
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 
