@@ -1,20 +1,24 @@
 package com.brocoders.iistsupport.busNo;
 
 public class BusModel {
-    String busNo, driver, contact;
+    String busno, driver, contact, locations;
 
-    public BusModel(String busNo, String driver, String contact) {
-        this.busNo = busNo;
+    public BusModel(){
+
+    }
+    public BusModel(String busno, String driver, String contact, String locations) {
+        this.busno = busno;
         this.driver = driver;
         this.contact = contact;
+        this.locations = locations;
     }
 
-    public String getBusNo() {
-        return busNo;
+    public String getBusno() {
+        return busno;
     }
 
-    public void setBusNo(String busNo) {
-        this.busNo = busNo;
+    public void setBusno(String busno) {
+        this.busno = busno;
     }
 
     public String getDriver() {
@@ -31,5 +35,13 @@ public class BusModel {
 
     public void setContact(String contact) {
         this.contact = contact;
+    }
+
+    public String getLocations() {
+        return locations;
+    }
+
+    public void setLocations(String locations) {
+        this.locations = locations;
     }
 }

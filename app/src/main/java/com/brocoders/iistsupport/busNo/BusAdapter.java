@@ -33,7 +33,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.viewHolder>{
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         BusModel model = list.get(position);
-        holder.busNo.setText(model.getBusNo());
+        holder.busNo.setText(model.getBusno());
         holder.driver.setText(model.getDriver());
         holder.contact.setText(model.getContact());
 
