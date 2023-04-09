@@ -21,6 +21,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class FacultyActivity extends AppCompatActivity {
     FacultyAdapter adapter;
@@ -75,13 +76,13 @@ public class FacultyActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                txtSearch(query);
+                txtSearch(query.toLowerCase());
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String query) {
-                txtSearch(query);
+                txtSearch(query.toLowerCase());
                 return false;
             }
         });
@@ -101,7 +102,7 @@ public class FacultyActivity extends AppCompatActivity {
                         list.clear();
                         for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                             FacultyModel model = dataSnapshot.getValue(FacultyModel.class);
-                            if(model != null && model.getExpertise().contains(str))
+                            if(model != null && model.getExpertise().toLowerCase().contains(str))
                                 list.add(model);
                         }
                         adapter.notifyDataSetChanged();
