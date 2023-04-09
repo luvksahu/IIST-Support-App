@@ -1,5 +1,6 @@
 package com.brocoders.iistsupport;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,17 +8,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.brocoders.iistsupport.Models.FacultyModel;
 import com.brocoders.iistsupport.adapter.FacultyAdapter;
 import com.brocoders.iistsupport.databinding.ActivityFacultyBinding;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class FacultyActivity extends AppCompatActivity {
-    FacultyAdapter facultyAdapter;
+    FacultyAdapter adapter;
+    FirebaseDatabase database;
     ActivityFacultyBinding binding;
     RecyclerView recyclerView;
+    ArrayList<FacultyModel> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,28 +35,34 @@ public class FacultyActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setTitle("Find a mentor");
 
+        list = new ArrayList<>();
         recyclerView = findViewById(R.id.faculty_rv);
         binding.facultyRv.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new FacultyAdapter(list, getBaseContext());
+        binding.facultyRv.setAdapter(adapter);
 
-        FirebaseRecyclerOptions<FacultyModel> options =
-                new FirebaseRecyclerOptions.Builder<FacultyModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Faculty"), FacultyModel.class)
-                        .build();
+        database = FirebaseDatabase.getInstance();
+        database.getReference().child("Faculty")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        list.clear();
+                        for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            FacultyModel model = dataSnapshot.getValue(FacultyModel.class);
+                            list.add(model);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
 
-        facultyAdapter = new FacultyAdapter(options);
-        binding.facultyRv.setAdapter(facultyAdapter);
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(FacultyActivity.this, "Some error encountered", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        facultyAdapter.startListening();
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        facultyAdapter.stopListening();
-    }
+
+
 
     // for search in faculty activity
     @Override
@@ -76,50 +92,27 @@ public class FacultyActivity extends AppCompatActivity {
     }
 
     private void txtSearch(String str){
-        FirebaseRecyclerOptions<FacultyModel> options =
-                new FirebaseRecyclerOptions.Builder<FacultyModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Faculty").orderByChild("expertise"), FacultyModel.class)
-                        .build();
 
-        facultyAdapter = new FacultyAdapter(options);
-        facultyAdapter.startListening();
-        recyclerView.setAdapter(facultyAdapter);
-        // upar vale code ko dhekna pahale hi likhe hai
-        // .startAt(str).endAt(str+"~")
+
+        database.getReference().child("Faculty")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        list.clear();
+                        for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            FacultyModel model = dataSnapshot.getValue(FacultyModel.class);
+                            if(model != null && model.getExpertise().contains(str))
+                                list.add(model);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(FacultyActivity.this, "Some error encountered", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 
     }
-
-
-
-
 }
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // below line is to get our inflater
-//        MenuInflater inflater = getMenuInflater();
-//
-//        // inside inflater we are inflating our menu file.
-//        inflater.inflate(R.menu.search_menu, menu);
-//
-//        // below line is to get our menu item.
-//        MenuItem searchItem = menu.findItem(R.id.actionSearch);
-//
-//        // getting search view of our item.
-//        SearchView searchView = (SearchView) searchItem.getActionView();
-//
-//        // below line is to call set on query text listener method.
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                // inside on query text change method we are
-//                // calling a method to filter our recycler view.
-//                filter(newText);
-//                return false;
-//            }
-//        });
-//        return true;
-//    }
