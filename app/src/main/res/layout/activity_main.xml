@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
         android:layout_marginBottom="10dp"
-        android:text="Developed by Luv_k_Sahu"
+        android:text="Developed by Ashish"
         android:textColor="?attr/colorOnSecondary"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
